@@ -62,6 +62,7 @@ public class EventoDAO {
     public void deleteEvento(Evento evento) {
         this.em.getTransaction().begin();
         this.em.remove(evento);
+        System.out.println("Evento removed: " + evento);
         this.em.getTransaction().commit();
     }
 

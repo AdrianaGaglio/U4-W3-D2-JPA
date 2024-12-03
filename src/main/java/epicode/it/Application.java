@@ -38,6 +38,7 @@ public class Application {
 
         managerEvento.saveEventi(eventi);
 
+        // ciclo while per via del numero random (in questo modo si è sicuri di avere un id esistente)
         while(true) {
             Evento found =managerEvento.getEventoById(faker.random().nextInt(1,100).longValue());
             if(found != null) {
@@ -46,9 +47,11 @@ public class Application {
             }
         }
 
+        // ciclo while per via del numero random (in questo modo si è sicuri di avere un id esistente)
         while(true) {
-            Evento found = managerEvento.deleteEvento(faker.random().nextInt(1,100).longValue());
+            Evento found = managerEvento.getEventoById(faker.random().nextInt(1,100).longValue());
             if(found != null) {
+                managerEvento.deleteEvento(found);
                 break;
             }
         }
